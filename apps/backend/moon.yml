@@ -1,0 +1,15 @@
+type: application
+language: python
+tasks:
+  install:
+    command: pip install -r requirements.txt
+    local: true
+  generate:
+    command: python -m grpc_tools.protoc -I../../proto --python_out=./src/generated --grpc_python_out=./src/generated ../../proto/tasks.proto
+    local: true
+  run:
+    command: python src/main.py
+    local: true
+  test:
+    command: pytest -q
+    local: true

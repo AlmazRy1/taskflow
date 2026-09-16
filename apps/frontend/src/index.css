@@ -1,0 +1,7 @@
+body { font-family: Inter, system-ui, sans-serif; background:#0a0a0b; color:#e5e5e5; margin:0; }
+* { box-sizing: border-box; }
+.card { background:#151517; border:1px solid #27272a; border-radius:12px; padding:16px; }
+.btn { background:#fff; color:#000; border:0; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:600; }
+.btn:disabled { opacity:.5 }
+.input { background:#1e1e20; border:1px solid #2e2e32; color:#fff; padding:10px 12px; border-radius:8px; width:100%; }
+.badge { font-size:11px; padding:3px 8px; border-radius:999px; border:1px solid #333; }

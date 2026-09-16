@@ -1,0 +1,6 @@
+# managed by moon
+node:
+  version: 20.11.0
+  packageManager: npm
+python:
+  version: 3.11.0

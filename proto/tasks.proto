@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package taskflow.v1;
+
+service TaskService {
+  rpc CreateTask (CreateTaskRequest) returns (Task);
+  rpc GetTask (GetTaskRequest) returns (Task);
+  rpc ListTasks (ListTasksRequest) returns (ListTasksResponse);
+  rpc UpdateTask (UpdateTaskRequest) returns (Task);
+  rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);
+  rpc ToggleComplete (ToggleCompleteRequest) returns (Task);
+}
+
+message Task {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  TaskStatus status = 4;
+  TaskPriority priority = 5;
+  bool completed = 6;
+  string created_at = 7;
+  string updated_at = 8;
+}
+
+enum TaskStatus {
+  TASK_STATUS_UNSPECIFIED = 0;
+  TODO = 1;
+  IN_PROGRESS = 2;
+  DONE = 3;
+}
+
+enum TaskPriority {
+  PRIORITY_UNSPECIFIED = 0;
+  LOW = 1;
+  MEDIUM = 2;
+  HIGH = 3;
+}
+
+message CreateTaskRequest {
+  string title = 1;
+  string description = 2;
+  TaskStatus status = 3;
+  TaskPriority priority = 4;
+}
+
+message GetTaskRequest { string id = 1; }
+message ListTasksRequest {
+  TaskStatus status_filter = 1;
+  bool include_completed = 2;
+}
+message ListTasksResponse { repeated Task tasks = 1; }
+
+message UpdateTaskRequest {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  TaskStatus status = 4;
+  TaskPriority priority = 5;
+}
+
+message DeleteTaskRequest { string id = 1; }
+message DeleteTaskResponse { bool success = 1; }
+
+message ToggleCompleteRequest { string id = 1; }

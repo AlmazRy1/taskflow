@@ -1,0 +1,18 @@
+type: application
+language: typescript
+platform: web
+tasks:
+  install:
+    command: npm install
+    local: true
+  dev:
+    command: npm run dev
+    local: true
+  build:
+    command: npm run build
+    local: true
+  test:
+    command: npm test
+    local: true
+  generate:
+    command: echo "proto generation would go here (protoc-gen-grpc-web) - using HTTP bridge for simplicity"
